@@ -36,7 +36,7 @@ saveChanges = () => {
           <textarea
             style={{width:"0px", height:"0px",opacity:"0",resize:"none"}}
             ref={(textarea) => this.textArea = textarea}
-            value={"Your friend "+ this.props.name +" has created a dynamic chat room and has invited you to join.\nLogin with the following credentials on the given link. \n*Room ID:* " + this.props.room + "\n*Link*: https://5ef4cd3c0ba70953aa011268--upbeat-borg-1d4d13.netlify.app" }
+            value={"Your friend "+ this.props.name +" has created a dynamic chat room and has invited you to join.\nLogin with the following credentials on the given link. \n*Room ID:* " + this.props.room + "\n*Link*: https://5ef4d65715c417dd026cc07a--admiring-borg-3884c9.netlify.app" }
             onChange={(event)=>this.inputChangedHandler(event)}
           />
         </div>
