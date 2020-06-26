@@ -22,13 +22,7 @@ const Chat = ({ location }) => {
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
-    socket = io(ENDPOINT,{
-    "force new connection":true,
-    "reconnectionAttempts":"Infinity",
-    "timeout":10000,
-    "transports":["websocket"]
-
-  });
+    socket = io(ENDPOINT,{transports:["websocket"]});
 
     setRoom(room);
     setName(name)
