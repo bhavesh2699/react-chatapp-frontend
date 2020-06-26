@@ -26,7 +26,7 @@ const Chat = ({ location }) => {
     "force new connection":true,
     "reconnectionAttempts":"Infinity",
     "timeout":10000,
-    "transports":["polling"]
+    "transports":["websocket"]
 
   });
 
