@@ -24,7 +24,7 @@ const Chat = ({ location }) => {
 
     socket = io(ENDPOINT,{
     "force new connection":true,
-    "reconnectionAttempts":"infinity",
+    "reconnectionAttempts":"Infinity",
     "timeout":10000,
     "transports":["websocket"]
 
