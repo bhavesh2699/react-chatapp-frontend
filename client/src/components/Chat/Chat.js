@@ -17,7 +17,7 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = 'https://chat-backend-app.herokuapp.com/';
+  const ENDPOINT = 'https://chat-backend-app.herokuapp.com';
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
@@ -26,7 +26,7 @@ const Chat = ({ location }) => {
     "force new connection":true,
     "reconnectionAttempts":"Infinity",
     "timeout":10000,
-    "transports":["websocket"]
+    "transports":["polling"]
 
   });
 
