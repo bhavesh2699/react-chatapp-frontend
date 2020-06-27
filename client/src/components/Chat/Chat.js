@@ -22,7 +22,7 @@ const Chat = ({ location }) => {
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
-    socket.connect(ENDPOINT,{'transports':['websocket','polling']});
+    socket = io(ENDPOINT,{transports: ['websocket']});
 
     setRoom(room);
     setName(name)
