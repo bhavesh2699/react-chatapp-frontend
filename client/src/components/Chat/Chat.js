@@ -22,10 +22,10 @@ const Chat = ({ location }) => {
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
-    socket = io.connect(ENDPOINT,{transports: ['websocket']});
+    socket = io.connect(ENDPOINT,{transports: ['xhr-polling']});
 
     setRoom(room);
-    setName(name)
+    setName(name);
 
     socket.emit('join', { name, room }, (error) => {
       if(error) {
