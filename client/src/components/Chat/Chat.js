@@ -17,12 +17,12 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = 'https://ec2-15-206-66-84.ap-south-1.compute.amazonaws.com/';
+  const ENDPOINT = 'https://chat-backend-app.herokuapp.com/';
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
-    socket = io.connect(ENDPOINT,{secure: true});
+    socket = io.connect(ENDPOINT,{transports: ['websocket']});
 
     setRoom(room);
     setName(name);
