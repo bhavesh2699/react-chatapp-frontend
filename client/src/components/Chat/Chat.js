@@ -22,10 +22,10 @@ const Chat = ({ location }) => {
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
-    socket = io.connect(ENDPOINT,{transports: ['websocket']});
+    socket = io(ENDPOINT);
 
     setRoom(room);
-    setName(name);
+    setName(name)
 
     socket.emit('join', { name, room }, (error) => {
       if(error) {
@@ -33,12 +33,12 @@ const Chat = ({ location }) => {
       }
     });
   }, [ENDPOINT, location.search]);
-
+  
   useEffect(() => {
     socket.on('message', message => {
       setMessages(messages => [ ...messages, message ]);
     });
-
+    
     socket.on("roomData", ({ users }) => {
       setUsers(users);
     });
@@ -55,11 +55,11 @@ const Chat = ({ location }) => {
   return (
     <div className="outerContainer">
       <div className="container">
-          <InfoBar room={room}  name={name} users={users}/>
+          <InfoBar room={room} />
           <Messages messages={messages} name={name} />
           <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
       </div>
-    <TextContainer users={users}/>
+      <TextContainer users={users}/>
     </div>
   );
 }
