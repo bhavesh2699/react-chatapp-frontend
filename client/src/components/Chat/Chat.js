@@ -22,7 +22,7 @@ const Chat = ({ location }) => {
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
-    socket = io(ENDPOINT);
+    socket = io(ENDPOINT,{transports: ['websocket'], upgrade: false});
 
     setRoom(room);
     setName(name)
@@ -55,11 +55,11 @@ const Chat = ({ location }) => {
   return (
     <div className="outerContainer">
       <div className="container">
-          <InfoBar room={room} />
+          <InfoBar room={room}  name={name} users={users}/>
           <Messages messages={messages} name={name} />
           <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
       </div>
-      <TextContainer users={users}/>
+    <TextContainer users={users}/>
     </div>
   );
 }
